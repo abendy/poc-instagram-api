@@ -1,0 +1,5 @@
+{
+    "require": {
+        "haridarshan/instagram-php": "^2.2"
+    }
+}
