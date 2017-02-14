@@ -1,5 +1,6 @@
 {
     "require": {
-        "haridarshan/instagram-php": "^2.2"
+        "haridarshan/instagram-php": "^2.2",
+        "raveren/kint": "^1.0"
     }
 }
