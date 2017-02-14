@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Login</title>
+    <title>Callback</title>
   </head>
   <body>
+    <p><a href="/">Home</a></p>
+
     <?php
 
     require_once 'vendor/autoload.php';
@@ -27,18 +29,20 @@
       'Callback' => $redirect_uri
     ));
 
-    $scope = [
-      'basic',
-      'likes',
-      'public_content'
-    ];
+    try {
+      $code = $_GET['code'];
 
-    $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
+      $oauth = $instagram->oauth($code);
 
-    echo "<p><a href='$loginUrl'>Connect to Instagram</a></p>";
+      $access_token = $oauth->getAccessToken();
+
+      header("Location: account.php?access_token=$access_token");
+
+    } catch (InstagramOAuthException $e) {
+      echo "<p>Error " . $e->getMessage() . "</p>";
+      exit;
+    }
 
     ?>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
   </body>
 </html>

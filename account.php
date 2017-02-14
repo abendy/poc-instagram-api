@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Login</title>
+    <title>Account</title>
   </head>
   <body>
+    <p><a href="/">Home</a></p>
+
     <?php
 
     require_once 'vendor/autoload.php';
@@ -27,15 +29,42 @@
       'Callback' => $redirect_uri
     ));
 
-    $scope = [
-      'basic',
-      'likes',
-      'public_content'
-    ];
+    try {
 
-    $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
+      $access_token = $_GET['access_token'];
 
-    echo "<p><a href='$loginUrl'>Connect to Instagram</a></p>";
+      // $instagram->setAccessToken($access_token);
+
+      // User
+
+      $user = new InstagramRequest($instagram, "/users/self", [ "access_token" => $access_token ]);
+
+      $user_data = $user->getResponse()->getData();
+
+      echo "<p><img src='$user_data->profile_picture' /></p>";
+      echo "<h1>$user_data->username</h1>";
+
+      // Media
+
+      $media = new InstagramRequest($instagram, "/users/self/media/recent", [ "count" => 10, "access_token" => $access_token ]);
+
+      $media_data = $media->getResponse()->getData();
+
+      if (!isset($media_data['images'])) echo "<p>No images</p>"; exit;
+
+      Kint::dump($media_data['images']);
+
+      foreach($media_data->images as $key => $image) {
+        $url = $value->standard_resolution->url;
+
+        echo "<p><img src='$url' /></p>";
+      }
+
+    } catch(InstagramResponseException $e) {
+      echo "<p>Error " . $e->getMessage() . "</p>";
+    } catch(InstagramServerException $e) {
+      echo "<p>Error " . $e->getMessage() . "</p>";
+    }
 
     ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
