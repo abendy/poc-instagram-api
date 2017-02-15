@@ -1,6 +1,16 @@
 {
-    "require": {
-        "haridarshan/instagram-php": "^2.2",
-        "raveren/kint": "^1.0"
-    }
+	"name": "multitest",
+	"require": {
+		"haridarshan/instagram-php": "^2.2",
+		"monolog/monolog": "~1.8",
+		"raveren/kint": "^1.0"
+	},
+	"require-dev": {
+		"heroku/heroku-buildpack-php": "*"
+	},
+	"scripts": {
+		"compile": [
+			"./node_modules/bower/bin/bower install"
+		]
+	}
 }

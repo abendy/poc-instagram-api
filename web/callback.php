@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use Haridarshan\Instagram\Instagram;
 use Haridarshan\Instagram\InstagramRequest;

@@ -9,15 +9,16 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="./vendor/material-design-lite/material.min.css">
     <style>
     body { margin: 1em; }
+    a { margin-bottom: 1em !important; }
     </style>
   </head>
   <body>
     <?php
 
-    require_once 'vendor/autoload.php';
+    require_once '../vendor/autoload.php';
 
     use Haridarshan\Instagram\Instagram;
     use Haridarshan\Instagram\InstagramRequest;
@@ -47,6 +48,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
-    <script defer src="bower_components/material-design-lite/material.min.js"></script>
+    <script defer src="./vendor/material-design-lite/material.min.js"></script>
   </body>
 </html>
