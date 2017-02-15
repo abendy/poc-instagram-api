@@ -14,7 +14,7 @@
     body { margin: 1em; }
     </style>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <body>
     <?php
 
     require_once 'vendor/autoload.php';

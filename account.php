@@ -15,7 +15,7 @@
     a { margin-bottom: 1em !important; }
     </style>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <body>
 
     <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="/">Home</a>
 
