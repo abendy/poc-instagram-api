@@ -1,19 +1,20 @@
 <!doctype html>
-<html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <title>Login</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
     <style>
+    body { margin: 1em; }
     </style>
   </head>
-  <body>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <?php
 
     require_once 'vendor/autoload.php';
@@ -40,12 +41,12 @@
 
     $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
 
-    echo "<p><a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" href='$loginUrl'>Connect to Instagram</a></p>";
-
     ?>
+
+    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="<?php echo $loginUrl; ?>">Connect to Instagram</a>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
     <script defer src="./bower_components/material-design-lite/material.min.js"></script>
-
   </body>
 </html>
