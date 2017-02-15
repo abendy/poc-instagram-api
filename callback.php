@@ -7,9 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Callback</title>
+
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" type="text/css" />
   </head>
   <body>
-    <p><a href="/">Home</a></p>
+    <p><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="/">Home</a></p>
 
     <?php
 

@@ -7,6 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Login</title>
+
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" type="text/css" />
   </head>
   <body>
     <?php
@@ -35,7 +37,7 @@
 
     $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
 
-    echo "<p><a href='$loginUrl'>Connect to Instagram</a></p>";
+    echo "<p><a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" href='$loginUrl'>Connect to Instagram</a></p>";
 
     ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>

@@ -7,9 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Account</title>
+
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" type="text/css" />
   </head>
   <body>
-    <p><a href="/">Home</a></p>
+    <p><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="/">Home</a></p>
 
     <?php
 
@@ -72,6 +74,5 @@
     ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
-    <script src="bower_components/material-design-lite/material.min.css" type="text/javascript"></script>
   </body>
 </html>
