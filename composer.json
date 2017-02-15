@@ -1,5 +1,5 @@
 {
-	"name": "multitest",
+	"name": "poc-instagram-api",
 	"require": {
 		"haridarshan/instagram-php": "^2.2",
 		"raveren/kint": "^1.0"
