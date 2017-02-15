@@ -8,7 +8,10 @@
 
     <title>Login</title>
 
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <style>
+    </style>
   </head>
   <body>
     <?php
@@ -40,7 +43,9 @@
     echo "<p><a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" href='$loginUrl'>Connect to Instagram</a></p>";
 
     ?>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
+    <script defer src="./bower_components/material-design-lite/material.min.js"></script>
+
   </body>
 </html>

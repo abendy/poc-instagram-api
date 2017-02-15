@@ -8,7 +8,10 @@
 
     <title>Account</title>
 
-    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <style>
+    </style>
   </head>
   <body>
     <p><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="/">Home</a></p>
