@@ -84,6 +84,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
-    <script defer src="./bower_components/material-design-lite/material.min.js"></script>
+    <script defer src="bower_components/material-design-lite/material.min.js"></script>
   </body>
 </html>
