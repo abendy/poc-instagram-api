@@ -31,33 +31,33 @@
 
     try {
 
-      $access_token = $_GET['access_token'];
+      $instagram->setAccessToken($access_token);
 
-      // $instagram->setAccessToken($access_token);
+      if ($instagram->getOAuth()->isAccessTokenSet()) {
 
-      // User
+        // User
 
-      $user = new InstagramRequest($instagram, "/users/self", [ "access_token" => $access_token ]);
+        $user = new InstagramRequest($instagram, "/users/self", [ "access_token" => $access_token ]);
 
-      $user_data = $user->getResponse()->getData();
+        $user_data = $user->getResponse()->getData();
 
-      echo "<p><img src='$user_data->profile_picture' /></p>";
-      echo "<h1>$user_data->username</h1>";
+        echo "<p><img src='$user_data->profile_picture' /></p>";
+        echo "<h1>$user_data->username</h1>";
 
-      // Media
+        // Media
 
-      $media = new InstagramRequest($instagram, "/users/self/media/recent", [ "count" => 10, "access_token" => $access_token ]);
+        $media = new InstagramRequest($instagram, "/users/self/media/recent", [ "access_token" => $access_token, "count" => 10 ]);
 
-      $media_data = $media->getResponse()->getData();
+        $media_data = $media->getResponse()->getData();
 
-      if (!isset($media_data['images'])) echo "<p>No images</p>"; exit;
+        if (!isset($media_data['images'])) echo "<p>No images</p>"; exit;
 
-      Kint::dump($media_data['images']);
+        foreach($media_data->images as $key => $image) {
+          $url = $value->standard_resolution->url;
 
-      foreach($media_data->images as $key => $image) {
-        $url = $value->standard_resolution->url;
+          echo "<p><img src='$url' /></p>";
+        }
 
-        echo "<p><img src='$url' /></p>";
       }
 
     } catch(InstagramResponseException $e) {

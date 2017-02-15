@@ -36,7 +36,13 @@
 
       $access_token = $oauth->getAccessToken();
 
-      header("Location: account.php?access_token=$access_token");
+      if ($access_token) {
+
+        $_SESSION['access_token'] = $access_token;
+
+        header("Location: account.php");
+
+      }
 
     } catch (InstagramOAuthException $e) {
       echo "<p>Error " . $e->getMessage() . "</p>";
