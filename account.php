@@ -61,8 +61,11 @@
       }
 
     } catch(InstagramResponseException $e) {
+
       echo "<p>Error " . $e->getMessage() . "</p>";
+
     } catch(InstagramServerException $e) {
+
       echo "<p>Error " . $e->getMessage() . "</p>";
     }
 

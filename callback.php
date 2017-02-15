@@ -45,8 +45,11 @@
       }
 
     } catch (InstagramOAuthException $e) {
+
       echo "<p>Error " . $e->getMessage() . "</p>";
+
       exit;
+
     }
 
     ?>
