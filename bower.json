@@ -1,0 +1,21 @@
+{
+  "name": "poc-instagram-api",
+  "authors": [
+    "Allan Bendy <allan.bendy@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "^1.3.0"
+  }
+}
