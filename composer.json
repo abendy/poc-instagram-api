@@ -2,7 +2,6 @@
 	"name": "multitest",
 	"require": {
 		"haridarshan/instagram-php": "^2.2",
-		"monolog/monolog": "^1.22",
 		"raveren/kint": "^1.0"
 	},
 	"require-dev": {
