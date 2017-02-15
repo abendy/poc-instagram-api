@@ -69,5 +69,6 @@
     ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
+    <script src="bower_components/material-design-lite/material.min.css" type="text/javascript"></script>
   </body>
 </html>
