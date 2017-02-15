@@ -37,11 +37,13 @@
       'Callback' => $redirect_uri
     ));
 
-    try {
-
+    if ($access_token) {
       $instagram->setAccessToken($access_token);
+    }
 
-      if ($instagram->getOAuth()->isAccessTokenSet()) {
+    if ($instagram->getOAuth()->isAccessTokenSet()) {
+
+      try {
 
         // User
 
@@ -66,15 +68,16 @@
           echo "<p><img src='$url' /></p>";
         }
 
+      } catch(InstagramResponseException $e) {
+
+        echo "<p>Error " . $e->getMessage() . "</p>";
+
+      } catch(InstagramServerException $e) {
+
+        echo "<p>Error " . $e->getMessage() . "</p>";
+
       }
 
-    } catch(InstagramResponseException $e) {
-
-      echo "<p>Error " . $e->getMessage() . "</p>";
-
-    } catch(InstagramServerException $e) {
-
-      echo "<p>Error " . $e->getMessage() . "</p>";
     }
 
     ?>

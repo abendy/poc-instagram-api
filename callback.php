@@ -17,6 +17,7 @@ $instagram = new Instagram(array(
 ));
 
 try {
+
   $code = $_GET['code'];
 
   $oauth = $instagram->oauth($code);
