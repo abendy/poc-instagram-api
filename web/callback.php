@@ -28,7 +28,7 @@ try {
 
     $_SESSION['access_token'] = $access_token;
 
-    header("Location: account.php");
+    header("Location: /");
 
   }
 

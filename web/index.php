@@ -40,11 +40,61 @@
       'public_content'
     ];
 
-    $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
+    if (!$access_token) {
+      $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
+      echo "<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" href=\"$loginUrl\">Connect to Instagram</a>";
+    }
 
+    // Set access token
+    if ($access_token) {
+      $instagram->setAccessToken($access_token);
+    }
+
+    if ($instagram->getOAuth()->isAccessTokenSet()) {
+
+      try {
+
+        // User
+
+        $user = new InstagramRequest($instagram, "/users/self", [ "access_token" => $access_token ]);
+
+        $user_data = $user->getResponse()->getData();
+
+        echo "<p><img src='$user_data->profile_picture' /></p>";
+        echo "<h1>$user_data->username</h1>";
+
+        // Media
+
+        $media = new InstagramRequest($instagram, "/users/self/media/recent", [ "access_token" => $access_token, "count" => 10 ]);
+
+        $media_data = $media->getResponse()->getData();
+
+        if (isset($media_data['images'])) {
+
+          foreach($media_data->images as $key => $image) {
+            $url = $value->standard_resolution->url;
+
+            echo "<p><img src='$url' /></p>";
+          }
+
+        } else {
+
+          echo "<p>No images</p>";
+
+        }
+
+      } catch(InstagramResponseException $e) {
+
+        echo "<p>Error " . $e->getMessage() . "</p>";
+
+      } catch(InstagramServerException $e) {
+
+        echo "<p>Error " . $e->getMessage() . "</p>";
+
+      }
+
+    }
     ?>
-
-    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="<?php echo $loginUrl; ?>">Connect to Instagram</a>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
