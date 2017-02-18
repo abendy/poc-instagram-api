@@ -83,6 +83,8 @@
 
         }
 
+        session_destroy();
+
       } catch(InstagramResponseException $e) {
 
         echo "<p>Error " . $e->getMessage() . "</p>";
