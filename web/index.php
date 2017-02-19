@@ -39,7 +39,8 @@
 
     if (!$access_token) {
       $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
-      echo "<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect\" href=\"$loginUrl\">Connect to Instagram</a>";
+
+      echo $twig->render('login.twig', array('loginUrl' => $loginUrl));
     }
 
     // Set access token
