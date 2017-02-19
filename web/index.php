@@ -22,10 +22,8 @@
       echo $twig->render('login.twig', array(
         'href' => $instagram->getLoginUrl(['scope' => $scope])
       ));
-    }
-
-    // Set access token
-    if ($access_token) {
+    } else {
+      // Set access token
       $instagram->setAccessToken($access_token);
     }
 
