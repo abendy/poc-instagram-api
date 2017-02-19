@@ -15,27 +15,7 @@
   <body>
     <?php
 
-    require_once '../vendor/autoload.php';
-
-    use Haridarshan\Instagram\Instagram;
-    use Haridarshan\Instagram\InstagramRequest;
-    use Haridarshan\Instagram\Exceptions\InstagramOAuthException;
-    use Haridarshan\Instagram\Exceptions\InstagramResponseException;
-    use Haridarshan\Instagram\Exceptions\InstagramServerException;
-
     require_once(__DIR__ . '/config.php');
-
-    $instagram = new Instagram(array(
-      'ClientId' => $client_id,
-      'ClientSecret' => $client_secret,
-      'Callback' => $redirect_uri
-    ));
-
-    $scope = [
-      'basic',
-      'likes',
-      'public_content'
-    ];
 
     if (!$access_token) {
       $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
@@ -54,18 +34,14 @@
 
         // User
 
-        $user = new InstagramRequest($instagram, "/users/self", [ "access_token" => $access_token ]);
-
-        $user_data = $user->getResponse()->getData();
+        $user_data = $instagramRequestUser->getResponse()->getData();
 
         echo "<p><img src='$user_data->profile_picture' /></p>";
         echo "<h1>$user_data->username</h1>";
 
         // Media
 
-        $media = new InstagramRequest($instagram, "/users/self/media/recent", [ "access_token" => $access_token, "count" => 10 ]);
-
-        $media_data = $media->getResponse()->getData();
+        $media_data = $instagramRequestMedia->getResponse()->getData();
 
         if (isset($media_data['images'])) {
 
