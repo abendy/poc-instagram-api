@@ -17,6 +17,7 @@
     <?php
     require_once('../config.php');
 
+    // Set button
     $button = array(
       'text' => 'Connect to Instagram',
       'href' => $instagram->getLoginUrl(['scope' => $scope])
@@ -34,10 +35,11 @@
 
     echo $twig->render('button.twig', $button);
 
+    // Get Instagram data
     if ($instagram->getOAuth()->isAccessTokenSet()) {
       try {
 
-        // User
+        // Get user data
         $user_data = $instagramRequestUser->getResponse()->getData();
 
         echo $twig->render('profile.twig', array(
@@ -48,7 +50,7 @@
           'website'         => $user_data->website
         ));
 
-        // Media
+        // Get media data
         $media_data = $instagramRequestMedia->getResponse()->getData();
 
         echo $twig->render('media.twig', array('images' => $media_data->images));
