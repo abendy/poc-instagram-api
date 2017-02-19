@@ -4,3 +4,9 @@ body {
 a {
   margin-bottom: 1em !important;
 }
+.profile img {
+  border-radius: 75px;
+  -moz-border-radius: 75px;
+  -webkit-border-radius: 75px;
+  border: 0px solid #000;
+}
