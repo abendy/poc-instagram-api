@@ -19,7 +19,8 @@
 
     if (!$access_token) {
 
-      echo $twig->render('login.twig', array(
+      echo $twig->render('button.twig', array(
+        'text' => 'Connect to Instagram',
         'href' => $instagram->getLoginUrl(['scope' => $scope])
       ));
 
@@ -27,6 +28,11 @@
 
       // Set access token
       $instagram->setAccessToken($access_token);
+
+      echo $twig->render('button.twig', array(
+        'text' => 'Exit',
+        'href' => 'exit.php'
+      ));
 
     }
 
@@ -49,7 +55,6 @@
 
         echo $twig->render('media.twig', array('images' => $media_data->images));
 
-        session_destroy();
 
       } catch(InstagramResponseException $e) {
         echo "<p>Error " . $e->getMessage() . "</p>";
