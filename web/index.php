@@ -49,7 +49,7 @@
 
         $media_data = $instagramRequestMedia->getResponse()->getData();
 
-        echo $twig->render('images.twig', array('images' => $media_data->images));
+        echo $twig->render('media.twig', array('images' => $media_data->images));
 
         session_destroy();
 
