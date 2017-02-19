@@ -15,24 +15,25 @@
   </head>
   <body>
     <?php
-
     require_once('../config.php');
 
     if (!$access_token) {
+
       echo $twig->render('login.twig', array(
         'href' => $instagram->getLoginUrl(['scope' => $scope])
       ));
+
     } else {
+
       // Set access token
       $instagram->setAccessToken($access_token);
+
     }
 
     if ($instagram->getOAuth()->isAccessTokenSet()) {
-
       try {
 
         // User
-
         $user_data = $instagramRequestUser->getResponse()->getData();
 
         echo $twig->render('profile.twig', array(
@@ -44,7 +45,6 @@
         ));
 
         // Media
-
         $media_data = $instagramRequestMedia->getResponse()->getData();
 
         echo $twig->render('media.twig', array('images' => $media_data->images));
@@ -52,18 +52,12 @@
         session_destroy();
 
       } catch(InstagramResponseException $e) {
-
         echo "<p>Error " . $e->getMessage() . "</p>";
-
       } catch(InstagramServerException $e) {
-
         echo "<p>Error " . $e->getMessage() . "</p>";
-
       }
-
     }
     ?>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
     <script defer src="vendor/material-design-lite/material.min.js"></script>
