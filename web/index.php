@@ -46,19 +46,7 @@
 
         $media_data = $instagramRequestMedia->getResponse()->getData();
 
-        if (isset($media_data['images'])) {
-
-          foreach($media_data->images as $key => $image) {
-            $url = $value->standard_resolution->url;
-
-            echo "<p><img src='$url' /></p>";
-          }
-
-        } else {
-
-          echo "<p>No images</p>";
-
-        }
+        echo $twig->render('images.twig', array('images' => $media_data->images));
 
         session_destroy();
 
