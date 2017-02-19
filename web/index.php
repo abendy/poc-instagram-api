@@ -37,8 +37,10 @@
 
         $user_data = $instagramRequestUser->getResponse()->getData();
 
-        echo "<p><img src='$user_data->profile_picture' /></p>";
-        echo "<h1>$user_data->username</h1>";
+        echo $twig->render('profile.twig', array(
+          'profile_picture' => $user_data->profile_picture, 
+          'username'        => $user_data->username
+        ));
 
         // Media
 
