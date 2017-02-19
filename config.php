@@ -4,7 +4,7 @@ if (!session_id()) {
   session_start();
 }
 
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 // Instagram
 use Haridarshan\Instagram\Instagram;
@@ -35,6 +35,6 @@ $instagramRequestMedia = new InstagramRequest($instagram, "/users/self/media/rec
 $loader = new Twig_Loader_Filesystem('templates');
 
 $twig = new Twig_Environment($loader, array(
-  'cache' => '../cache',
+  'cache' => 'cache',
   'debug' => true
 ));

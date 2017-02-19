@@ -10,13 +10,13 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./vendor/material-design-lite/material.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="vendor/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="assets/style.css">
   </head>
   <body>
     <?php
 
-    require_once(__DIR__ . '/config.php');
+    require_once('../config.php');
 
     if (!$access_token) {
       $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
@@ -75,6 +75,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">window.jQuery || document.write('<script src="/local/jquery.min.js"><\/script>')</script>
-    <script defer src="./vendor/material-design-lite/material.min.js"></script>
+    <script defer src="vendor/material-design-lite/material.min.js"></script>
   </body>
 </html>
