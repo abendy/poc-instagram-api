@@ -32,9 +32,9 @@ $instagramRequestUser = new InstagramRequest($instagram, "/users/self", [ "acces
 $instagramRequestMedia = new InstagramRequest($instagram, "/users/self/media/recent", [ "access_token" => $access_token, "count" => 10 ]);
 
 // Twig
-$loader = new Twig_Loader_Filesystem('templates');
+$loader = new Twig_Loader_Filesystem('../templates');
 
 $twig = new Twig_Environment($loader, array(
-  'cache' => 'cache',
+  'cache' => '../cache',
   'debug' => true
 ));
