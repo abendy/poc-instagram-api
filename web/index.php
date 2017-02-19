@@ -19,9 +19,9 @@
     require_once('../config.php');
 
     if (!$access_token) {
-      $loginUrl = $instagram->getLoginUrl(['scope' => $scope]);
-
-      echo $twig->render('login.twig', array('loginUrl' => $loginUrl));
+      echo $twig->render('login.twig', array(
+        'href' => $instagram->getLoginUrl(['scope' => $scope])
+      ));
     }
 
     // Set access token
