@@ -17,24 +17,22 @@
     <?php
     require_once('../config.php');
 
-    if (!$access_token) {
+    $button = array(
+      'text' => 'Connect to Instagram',
+      'href' => $instagram->getLoginUrl(['scope' => $scope])
+    );
 
-      echo $twig->render('button.twig', array(
-        'text' => 'Connect to Instagram',
-        'href' => $instagram->getLoginUrl(['scope' => $scope])
-      ));
-
-    } else {
-
+    if ($access_token) {
       // Set access token
       $instagram->setAccessToken($access_token);
 
-      echo $twig->render('button.twig', array(
+      $button = array(
         'text' => 'Exit',
         'href' => 'exit.php'
-      ));
-
+      );
     }
+
+    echo $twig->render('button.twig', $button);
 
     if ($instagram->getOAuth()->isAccessTokenSet()) {
       try {
