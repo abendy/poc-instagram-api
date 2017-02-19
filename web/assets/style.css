@@ -10,3 +10,8 @@ a {
   -webkit-border-radius: 75px;
   border: 0px solid #000;
 }
+.profile * {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
