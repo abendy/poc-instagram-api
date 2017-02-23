@@ -12,6 +12,7 @@
   "devDependencies": {
     "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^1.4.0",
-    "gutil": "^1.6.4"
+    "gutil": "^1.6.4",
+    "phplint": "^1.7.1"
   }
 }
