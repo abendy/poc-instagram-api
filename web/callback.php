@@ -2,18 +2,16 @@
 require_once('../config.php');
 
 try {
+    $oauth = $instagram->oauth($_GET['code']);
 
-  $oauth = $instagram->oauth($_GET['code']);
+    $access_token = $oauth->getAccessToken();
 
-  $access_token = $oauth->getAccessToken();
+    if ($access_token) {
+        $_SESSION['access_token'] = $access_token;
 
-  if ($access_token) {
-    $_SESSION['access_token'] = $access_token;
-
-    header("Location: /");
-  }
-
+        header("Location: /");
+    }
 } catch (InstagramOAuthException $e) {
-  echo "<p>Error " . $e->getMessage() . "</p>";
-  exit;
+    echo "<p>Error " . $e->getMessage() . "</p>";
+    exit;
 }

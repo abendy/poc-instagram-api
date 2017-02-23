@@ -25,42 +25,39 @@
 
     if ($access_token) {
       // Set access token
-      $instagram->setAccessToken($access_token);
+        $instagram->setAccessToken($access_token);
 
-      $button = array(
+        $button = array(
         'text' => 'Exit',
         'href' => 'exit.php'
-      );
+        );
     }
 
     echo $twig->render('button.twig', $button);
 
     // Get Instagram data
     if ($instagram->getOAuth()->isAccessTokenSet()) {
-      try {
+        try {
+            // Get user data
+            $user_data = $instagramRequestUser->getResponse()->getData();
 
-        // Get user data
-        $user_data = $instagramRequestUser->getResponse()->getData();
+            echo $twig->render('profile.twig', array(
+            'profile_picture' => $user_data->profile_picture,
+            'full_name'       => $user_data->full_name,
+            'username'        => $user_data->username,
+            'bio'             => $user_data->bio,
+            'website'         => $user_data->website
+            ));
 
-        echo $twig->render('profile.twig', array(
-          'profile_picture' => $user_data->profile_picture, 
-          'full_name'       => $user_data->full_name,
-          'username'        => $user_data->username,
-          'bio'             => $user_data->bio,
-          'website'         => $user_data->website
-        ));
+            // Get media data
+            $media_data = $instagramRequestMedia->getResponse()->getData();
 
-        // Get media data
-        $media_data = $instagramRequestMedia->getResponse()->getData();
-
-        echo $twig->render('media.twig', array('images' => $media_data));
-
-
-      } catch(InstagramResponseException $e) {
-        echo "<p>Error " . $e->getMessage() . "</p>";
-      } catch(InstagramServerException $e) {
-        echo "<p>Error " . $e->getMessage() . "</p>";
-      }
+            echo $twig->render('media.twig', array('images' => $media_data));
+        } catch (InstagramResponseException $e) {
+            echo "<p>Error " . $e->getMessage() . "</p>";
+        } catch (InstagramServerException $e) {
+            echo "<p>Error " . $e->getMessage() . "</p>";
+        }
     }
     ?>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
