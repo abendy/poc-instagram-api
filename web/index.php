@@ -61,5 +61,15 @@
     }
     ?>
     <script defer src="vendor/material-design-lite/material.min.js"></script>
+    <script src="vendor/masonry/dist/masonry.pkgd.min.js"></script>
+    <script defer>
+    var msnry = new Masonry( '.grid', {
+        // columnWidth: '.grid-sizer',
+        fitWidth: true,
+        // gutter: 15,
+        itemSelector: '.grid-item',
+        // percentPosition: true
+    });
+    </script>
   </body>
 </html>

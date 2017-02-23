@@ -1,6 +1,8 @@
-<div class="images">
+<div class="images grid">
+  <div class="grid-sizer"></div>
   {% for image in images %}
-  <p><img src="{{ image.standard_resolution.url }} " /></p>";
+  <div class="grid-item">
     <p><a href="{{ image.link }}"><img src="{{ image.images.standard_resolution.url }} " /></a></p>
+  </div>
   {% endfor %}
 </div>

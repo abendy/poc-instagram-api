@@ -10,9 +10,23 @@ a {
   -webkit-border-radius: 75px;
   border: 0px solid #000;
 }
-.profile *,
-.media * {
+.profile * {
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+.grid {
+  margin: 0 auto;
+  width: 90%;
+}
+.grid-sizer,
+.grid-item {
+  width: 30%;
+}
+.grid-item {
+  overflow: hidden;
+}
+.grid-item img {
+  height: auto;
+  width: 100%;
 }
