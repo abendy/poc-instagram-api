@@ -10,6 +10,8 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
-    "gulp-phpcs": "^1.4.0"
+    "gulp-phpcbf": "^0.1.2",
+    "gulp-phpcs": "^1.4.0",
+    "gutil": "^1.6.4"
   }
 }
