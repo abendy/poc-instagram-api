@@ -3,7 +3,8 @@
 	"require": {
 		"haridarshan/instagram-php": "^2.2",
 		"raveren/kint": "^1.0",
-		"twig/twig": "1.31.0"
+		"twig/twig": "1.31.0",
+		"squizlabs/php_codesniffer": "^2.8"
 	},
 	"require-dev": {
 		"heroku/heroku-buildpack-php": "*"
