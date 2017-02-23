@@ -8,5 +8,8 @@
   },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "devDependencies": {
+    "gulp-phpcs": "^1.4.0"
   }
 }
