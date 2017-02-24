@@ -22,8 +22,6 @@ $instagram = new Instagram(array(
 ));
 
 $scope = [
-    'basic',
-    'likes',
     'public_content'
 ];
 
