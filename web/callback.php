@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once '../config.php';
 
 try {
     $oauth = $instagram->oauth($_GET['code']);

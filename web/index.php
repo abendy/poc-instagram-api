@@ -16,12 +16,12 @@
   </head>
   <body>
     <?php
-    require_once('../config.php');
+    require_once '../config.php';
 
     // Set button
     $button = array(
-      'text' => 'Connect to Instagram',
-      'href' => $instagram->getLoginUrl(['scope' => $scope])
+        'text' => 'Connect to Instagram',
+        'href' => $instagram->getLoginUrl(['scope' => $scope])
     );
 
     if ($access_token) {
@@ -29,8 +29,8 @@
         $instagram->setAccessToken($access_token);
 
         $button = array(
-        'text' => 'Exit',
-        'href' => 'exit.php'
+            'text' => 'Exit',
+            'href' => 'exit.php'
         );
     }
 
@@ -43,11 +43,11 @@
             $user_data = $instagramRequestUser->getResponse()->getData();
 
             echo $twig->render('profile.twig', array(
-            'profile_picture' => $user_data->profile_picture,
-            'full_name'       => $user_data->full_name,
-            'username'        => $user_data->username,
-            'bio'             => $user_data->bio,
-            'website'         => $user_data->website
+                'profile_picture' => $user_data->profile_picture,
+                'full_name'       => $user_data->full_name,
+                'username'        => $user_data->username,
+                'bio'             => $user_data->bio,
+                'website'         => $user_data->website
             ));
 
             // Get media data
