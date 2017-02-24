@@ -1,7 +1,6 @@
-<div class="images grid">
-  <div class="grid-sizer"></div>
+<div class="images container-fluid">
   {% for image in images %}
-  <div class="grid-item">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <p><a href="{{ image.link }}"><img src="{{ image.images.standard_resolution.url }} " /></a></p>
   </div>
   {% endfor %}
