@@ -55,9 +55,9 @@
 
             echo $twig->render('media.twig', array('images' => $media_data));
         } catch (InstagramResponseException $e) {
-            echo "<p>Error " . $e->getMessage() . "</p>";
+            echo '<p>Error ' . $e->getMessage() . '</p>';
         } catch (InstagramServerException $e) {
-            echo "<p>Error " . $e->getMessage() . "</p>";
+            echo '<p>Error ' . $e->getMessage() . '</p>';
         }
     }
     ?>

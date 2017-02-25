@@ -9,9 +9,9 @@ try {
     if ($access_token) {
         $_SESSION['access_token'] = $access_token;
 
-        header("Location: /");
+        header('Location: /');
     }
 } catch (InstagramOAuthException $e) {
-    echo "<p>Error " . $e->getMessage() . "</p>";
+    echo '<p>Error ' . $e->getMessage() . '</p>';
     exit;
 }
