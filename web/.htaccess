@@ -1,5 +1,7 @@
 Options -Indexes
 
+Options +FollowSymLinks
+
 DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
