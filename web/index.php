@@ -30,7 +30,7 @@
 
         $button = array(
             'text' => 'Exit',
-            'href' => 'exit'
+            'href' => 'exit.php'
         );
     }
 
