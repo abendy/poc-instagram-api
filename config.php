@@ -13,6 +13,16 @@ use Haridarshan\Instagram\Exceptions\InstagramOAuthException;
 use Haridarshan\Instagram\Exceptions\InstagramResponseException;
 use Haridarshan\Instagram\Exceptions\InstagramServerException;
 
+$creds = __DIR__ . '/credentials.json';
+
+if (file_exists($creds)) {
+    $json = file_get_contents($creds);
+
+    $config = json_decode($json, true);
+
+    $fb = new Facebook($config);
+}
+
 $protocol      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
 $redirect_uri  = $protocol . '://' . $_SERVER['HTTP_HOST'] . '/callback.php';
 $access_token  = isset($_SESSION['access_token']) ? $_SESSION['access_token'] : '';
