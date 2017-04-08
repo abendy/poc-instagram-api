@@ -11,7 +11,7 @@ var gulp   = require('gulp'),
 //////////////////////////////
 
 gulp.task('phpcs', function () {
-  return gulp.src(['web/**/*.php'])
+  return gulp.src(['web/**/*.php', '!src/vendor/**/*.*'])
     .pipe(phpcs({
       bin: 'vendor/bin/phpcs',
       standard: 'PSR2',
@@ -22,7 +22,7 @@ gulp.task('phpcs', function () {
 });
  
 gulp.task('phpcbf', function () {
-  return gulp.src(['web/**/*.php'])
+  return gulp.src(['web/**/*.php', '!src/vendor/**/*.*'])
   .pipe(phpcbf({
     bin: 'vendor/bin/phpcbf',
     standard: 'PSR2',
