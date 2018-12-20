@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+}

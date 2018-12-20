@@ -1,0 +1,14 @@
+{
+	"name": "poc-instagram-api",
+    "description": "",
+	"require": {
+		"twig/twig": "^2.6",
+		"symfony/polyfill-iconv": "^1.10",
+		"haridarshan/instagram-php": "^2.2"
+	},
+	"require-dev": {
+		"kint-php/kint": "^3.1",
+		"kint-php/kint-js": "^2.0",
+		"kint-php/kint-twig": "^2.0"
+	}
+}
