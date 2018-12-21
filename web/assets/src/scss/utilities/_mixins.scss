@@ -9,9 +9,9 @@
 // Styleguide 10.1
 
 @mixin reset-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 // Hovers
@@ -23,9 +23,9 @@
 // Styleguide 10.3
 
 @mixin hover {
-  &:hover,
-  &:active,
-  &:focus { @content; }
+    &:hover,
+    &:active,
+    &:focus { @content; }
 }
 
 // Feature Detection
@@ -35,16 +35,16 @@
 // @usage - `@include not-supported($feature)`
 
 @mixin supported($feature) {
-  .#{$feature} & {
-    @content;
-  }
+    .#{$feature} & {
+        @content;
+    }
 }
 
 @mixin not-supported($feature) {
-  .no-js &,
-  .no-#{$feature} & {
-    @content;
-  }
+    .no-js &,
+    .no-#{$feature} & {
+        @content;
+    }
 }
 
 // Media Queries
@@ -56,11 +56,11 @@
 // $type - Defaults to `screen`.
 
 @mixin mq($breakpoint, $query: 'min-width', $type: 'screen') {
-  @if $fix-mqs {
-    @if $fix-mqs >= $breakpoint { @content; }
-  } @else {
-    @media #{$type} and (#{$query}: #{$breakpoint}) { @content; }
-  }
+    @if $fix-mqs {
+        @if $fix-mqs >= $breakpoint { @content; }
+    } @else {
+        @media #{$type} and (#{$query}: #{$breakpoint}) { @content; }
+    }
 }
 
 // Clearfix
@@ -70,15 +70,15 @@
 // @source - http://nicolasgallagher.com/micro-clearfix-hack/
 
 @mixin clearfix {
-  *zoom: 1;
+    *zoom: 1;
 
-  &:before,
-  &:after {
-    content: '';
-    display: table;
-  }
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
 
-  &:after { clear: both; }
+    &:after { clear: both; }
 }
 
 // Hide Text
@@ -86,9 +86,9 @@
 // @usage - `@include hide-text`
 
 @mixin hide-text {
-  overflow: hidden;
-  text-indent: 101%;
-  white-space: nowrap;
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
 }
 
 // Hidden
@@ -98,8 +98,8 @@
 // @usage - `@include hidden`
 
 @mixin hidden {
-  display: none !important;
-  visibility: hidden;
+    display: none !important;
+    visibility: hidden;
 }
 
 // Visually Hidden
@@ -109,29 +109,29 @@
 // @usage - `@include visuallyhidden`
 
 @mixin visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 
-  // Extends the .visuallyhidden class to allow the element to be focusable
-  // when navigated to via the keyboard: h5bp.com/p
+    // Extends the .visuallyhidden class to allow the element to be focusable
+    // when navigated to via the keyboard: h5bp.com/p
 
-  &.focusable {
-    &:active,
-    &:focus {
-      clip: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      position: static;
-      width: auto;
+    &.focusable {
+        &:active,
+        &:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
     }
-  }
 }
 
 // Invisible

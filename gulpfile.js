@@ -23,24 +23,24 @@ function clean(cb) {
 
 function scripts() {
     return gulp.src([
-            'node_modules/material-design-lite/dist/material.js',
-            src + 'js/**/*.js'
-        ])
-        .pipe(uglify())
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest(dist));
+        'node_modules/material-design-lite/dist/material.js',
+        src + 'js/**/*.js'
+    ])
+    .pipe(uglify())
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest(dist));
 }
 
 function styles() {
     return gulp.src([
-            'node_modules/material-design-lite/src/material-design-lite.scss',
-            src + 'scss/**/*.scss'
-        ])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS())
-        .pipe(concat('main.css'))
-        .pipe(gulp.dest(dist))
+        'node_modules/material-design-lite/src/material-design-lite.scss',
+        src + 'scss/**/*.scss'
+    ])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
+    .pipe(concat('main.css'))
+    .pipe(gulp.dest(dist))
 }
 
 function watch() {
