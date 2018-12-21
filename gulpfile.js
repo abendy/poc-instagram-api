@@ -10,8 +10,6 @@ const uglify = require('gulp-uglify');
 const src = 'web/assets/src/';
 const dist = 'web/assets/dist/';
 
-sass.compiler = require('node-sass');
-
 //////////////////////////////
 // Begin Gulp Tasks
 //////////////////////////////
