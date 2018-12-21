@@ -4,5 +4,4 @@
 .cache/
 node_modules/
 vendor/
-web/vendor/
 credentials.json
