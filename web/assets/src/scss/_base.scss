@@ -22,6 +22,7 @@ body {
     font-family: $font-family-default;
     font-size: rem(16, $base-font-size);
     -webkit-font-smoothing: antialiased;
+    line-height: $base-line-height;
     overflow: hidden;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
