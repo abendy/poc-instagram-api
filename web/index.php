@@ -17,6 +17,13 @@
         <?php
         require_once '../config.php';
 
+        $scope = [
+            'basic',
+            'follower_list',
+            'public_content',
+            'relationships'
+        ];
+
         // Set button
         $button = array(
             'text' => 'Connect to Instagram',
@@ -24,9 +31,6 @@
         );
 
         if ($access_token) {
-        // Set access token
-            $instagram->setAccessToken($access_token);
-
             $button = array(
                 'text' => 'Exit',
                 'href' => 'exit.php'
@@ -41,11 +45,6 @@
                 // Get user data
                 $user_data = $instagramRequestUser->getResponse()->getData();
 
-
-                d($instagramRequestUser->getResponse());
-
-
-
                 echo $twig->render('profile.twig', array(
                     'profile_picture' => $user_data->profile_picture,
                     'full_name'       => $user_data->full_name,
@@ -55,6 +54,7 @@
                 ));
 
                 // Get media data
+
                 $media_data = $instagramRequestMedia->getResponse()->getData();
 
                 echo $twig->render('media.twig', array('images' => $media_data));

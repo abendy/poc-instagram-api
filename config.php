@@ -27,18 +27,18 @@ $access_token  = isset($_SESSION['access_token']) ? $_SESSION['access_token'] : 
 
 $config['Callback'] = $redirect_uri;
 
-$instagram = new Instagram($config);
+if (!isset($instagram) && $config) $instagram = new Instagram($config);
 
-$scope = [
-    'basic',
-    'follower_list',
-    'public_content',
-    'relationships'
-];
+if ($instagram && $access_token) {
+    // Set access token
+    $instagram->setAccessToken($access_token);
 
-$instagramRequestUser = new InstagramRequest($instagram, '/users/self', [ 'access_token' => $access_token ]);
+    // New Instagram user request
+    if (!isset($instagramRequestUser)) $instagramRequestUser = new InstagramRequest($instagram, '/users/self', [ 'access_token' => $access_token ]);
 
-$instagramRequestMedia = new InstagramRequest($instagram, '/users/self/media/recent', [ 'access_token' => $access_token, 'count' => 10 ]);
+    // New Instagram user media request
+    if (!isset($instagramRequestMedia)) $instagramRequestMedia = new InstagramRequest($instagram, '/users/self/media/recent', [ 'access_token' => $access_token, 'count' => 10 ]);
+}
 
 // Twig
 $loader = new Twig_Loader_Filesystem('../templates');
