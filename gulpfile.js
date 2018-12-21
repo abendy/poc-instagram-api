@@ -43,7 +43,7 @@ function styles() {
 }
 
 function watch() {
-    return gulp.watch(src + '*.scss', ['styles']);
+    return gulp.watch(src + '*.scss', gulp.parallel('styles'));
 }
 
 const build = gulp.parallel(clean, scripts, styles);
@@ -51,4 +51,5 @@ const build = gulp.parallel(clean, scripts, styles);
 exports.default = build;
 exports.build = build;
 exports.clean = clean;
+exports.styles = styles;
 exports.watch = watch;
