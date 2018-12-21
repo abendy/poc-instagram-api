@@ -30,7 +30,7 @@
             'href' => $instagram->getLoginUrl(['scope' => $scope])
         );
 
-        if ($access_token) {
+        if (!empty($access_token)) {
             $button = array(
                 'text' => 'Exit',
                 'href' => 'exit.php'

@@ -27,9 +27,9 @@ $access_token  = isset($_SESSION['access_token']) ? $_SESSION['access_token'] : 
 
 $config['Callback'] = $redirect_uri;
 
-if (!isset($instagram) && $config) $instagram = new Instagram($config);
+if (!isset($instagram) && is_array($config)) $instagram = new Instagram($config);
 
-if ($instagram && $access_token) {
+if (isset($instagram) && !empty($access_token)) {
     // Set access token
     $instagram->setAccessToken($access_token);
 
