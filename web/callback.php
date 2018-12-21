@@ -12,6 +12,6 @@ try {
         header('Location: /');
     }
 } catch (InstagramOAuthException $e) {
-    echo '<p>Error ' . $e->getMessage() . '</p>';
+    echo '<h2>Oauth Error</h2><p>' . $e->getMessage() . '</p>';
     exit;
 }
