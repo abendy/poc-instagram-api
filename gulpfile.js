@@ -1,7 +1,6 @@
 'use strict';
 
 const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const del = require('del');
 const gulp = require('gulp');
@@ -36,9 +35,8 @@ function styles() {
         'node_modules/material-design-lite/src/material-design-lite.scss',
         src + 'scss/**/*.scss'
     ])
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(cleanCSS())
     .pipe(concat('main.css'))
     .pipe(gulp.dest(dist))
 }
