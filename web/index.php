@@ -7,7 +7,7 @@
 
         <title>poc-instagram-api</title>
 
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
 
         <link rel="stylesheet" href="assets/dist/main.css">
     </head>
