@@ -1,0 +1,18 @@
+// Profile
+
+@import '../utilities/colors';
+
+.profile {
+    align-items: center;
+    background-color: $insta-lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+
+    img {
+        border-radius: 75px;
+        width: 150px;
+    }
+}

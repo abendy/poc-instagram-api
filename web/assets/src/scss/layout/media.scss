@@ -1,0 +1,17 @@
+// Media
+
+.feed {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    width: 100%;
+}
+
+.feed-image {
+    width: 25%;
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+}

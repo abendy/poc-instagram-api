@@ -25,16 +25,17 @@ body {
     font-size: rem(16, $base-font-size);
     -webkit-font-smoothing: antialiased;
     line-height: $base-line-height;
-    overflow: hidden;
+    // overflow: hidden;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
 }
 
 #main {
-    align-items: center;
+    align-items: flex-end;
     display: flex;
-    height: 100vh;
-    justify-content: center;
+    flex-direction: column;
+
+    // height: 100vh;
     width: 100vw;
 }
 
@@ -64,8 +65,12 @@ h6 {
     font-weight: normal;
 }
 
+h1 {
+    font-size: rem(30);
+}
+
 img {
     height: auto;
     max-width: 100%;
-    width: 100%;
+    // width: 100%;
 }
