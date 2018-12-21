@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="assets/dist/main.css">
     </head>
     <body>
-        <main>
+
+        <div id="main">
         <?php
         require_once '../config.php';
 
@@ -64,7 +65,7 @@
             }
         }
         ?>
-        </main>
+        </div>
 
         <script defer src="assets/dist/main.js"></script>
     </body>

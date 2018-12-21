@@ -23,7 +23,8 @@ function clean(cb) {
 
 function scripts() {
     return gulp.src([
-            'node_modules/material-design-lite/dist/material.js'
+            'node_modules/material-design-lite/dist/material.js',
+            src + 'js/**/*.js'
         ])
         .pipe(uglify())
         .pipe(concat('main.js'))
@@ -33,7 +34,7 @@ function scripts() {
 function styles() {
     return gulp.src([
             'node_modules/material-design-lite/src/material-design-lite.scss',
-            src + '*.scss'
+            src + 'scss/**/*.scss'
         ])
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
@@ -43,7 +44,7 @@ function styles() {
 }
 
 function watch() {
-    return gulp.watch(src + '*.scss', gulp.parallel('styles'));
+    return gulp.watch(src + 'scss/**/*.scss', gulp.parallel('styles'));
 }
 
 const build = gulp.parallel(clean, scripts, styles);
