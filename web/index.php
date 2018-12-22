@@ -59,7 +59,10 @@
 
                 $media_data = $instagramRequestMedia->getResponse()->getData();
 
-                echo $twig->render('media.twig', array('images' => $media_data));
+                // Render feed
+
+                echo $twig->render('feed.twig', array('media' => $media_data));
+
             } catch (InstagramResponseException $e) {
                 echo '<h2>Response Error</h2><p>' . $e->getMessage() . '</p>';
             } catch (InstagramServerException $e) {

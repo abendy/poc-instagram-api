@@ -1,9 +1,0 @@
-{% if images is defined %}
-<div class="feed">
-  {% for image in images %}
-  <div class="feed-image">
-    <a href="{{ image.link }}"><img src="{{ image.images.standard_resolution.url }} " /></a>
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
