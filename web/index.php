@@ -46,19 +46,11 @@
             try {
                 // Get user data
 
-                $user_data = $instagramRequestUser->getResponse()->getData();
+                $user_data = (array) $instagramRequestUser->getResponse()->getData();
 
                 // Render profile
 
-                $profile = array(
-                    'profile_picture' => $user_data->profile_picture,
-                    'full_name'       => $user_data->full_name,
-                    'username'        => $user_data->username,
-                    'bio'             => $user_data->bio,
-                    'website'         => $user_data->website
-                );
-
-                echo $twig->render('profile.twig', $profile);
+                echo $twig->render('profile.twig', $user_data);
 
                 // Get media data
 
