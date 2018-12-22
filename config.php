@@ -35,13 +35,12 @@ if (file_exists($creds)) {
 // Set up API callback URL
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
 $redirect_uri = $protocol . '://' . $_SERVER['HTTP_HOST'] . '/callback.php';
+$config['Callback'] = $redirect_uri;
 
 // Set API access token
 if ($cache->exists('access_token')) {
     $access_token = $cache->get('access_token');
 }
-
-$config['Callback'] = $redirect_uri;
 
 // Instantiate API classes
 if (!isset($instagram) && is_array($config)) {
