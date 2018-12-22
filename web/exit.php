@@ -1,10 +1,11 @@
 <?php
+require_once '../config.php';
 
 if (session_id()) {
     session_destroy();
 }
 
-$_SESSION = array();
+$cache->expire('access_token', 0);
 
 if (ini_get('session.use_cookies')) {
     $params = session_get_cookie_params();
