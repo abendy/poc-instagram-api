@@ -7,7 +7,7 @@ try {
     $access_token = $oauth->getAccessToken();
 
     if ($access_token) {
-        $_SESSION['access_token'] = $access_token;
+        $cache->set('access_token', $access_token);
 
         header('Location: /');
     }

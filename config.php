@@ -13,6 +13,16 @@ use Haridarshan\Instagram\Exceptions\InstagramOAuthException;
 use Haridarshan\Instagram\Exceptions\InstagramResponseException;
 use Haridarshan\Instagram\Exceptions\InstagramServerException;
 
+// Init Redis cache
+try {
+    $cache = new Predis\Client();
+    // d($cache);
+}
+catch (Exception $e) {
+    $message = '<h2>Redis Error</h2><p>' . $e->getMessage() . '</p>';
+	die($message);
+}
+
 $creds = __DIR__ . '/credentials.json';
 
 if (file_exists($creds)) {
@@ -23,13 +33,17 @@ if (file_exists($creds)) {
 
 $protocol      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
 $redirect_uri  = $protocol . '://' . $_SERVER['HTTP_HOST'] . '/callback.php';
-$access_token  = isset($_SESSION['access_token']) ? $_SESSION['access_token'] : '';
+
+// Set API access token
+if ($cache->exists('access_token')) {
+    $access_token = $cache->get('access_token');
+}
 
 $config['Callback'] = $redirect_uri;
 
 if (!isset($instagram) && is_array($config)) $instagram = new Instagram($config);
 
-if (isset($instagram) && !empty($access_token)) {
+if (isset($instagram) && isset($access_token)) {
     // Set access token
     $instagram->setAccessToken($access_token);
 
