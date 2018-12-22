@@ -31,7 +31,7 @@ function scripts() {
 function styles() {
     return gulp.src([
         'node_modules/material-design-lite/src/material-design-lite.scss',
-        src + 'scss/**/*.scss'
+        src + 'scss/style.scss'
     ])
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer())
