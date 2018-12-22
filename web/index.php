@@ -45,15 +45,20 @@
         if ($instagram->getOAuth()->isAccessTokenSet()) {
             try {
                 // Get user data
+
                 $user_data = $instagramRequestUser->getResponse()->getData();
 
-                echo $twig->render('profile.twig', array(
+                // Render profile
+
+                $profile = array(
                     'profile_picture' => $user_data->profile_picture,
                     'full_name'       => $user_data->full_name,
                     'username'        => $user_data->username,
                     'bio'             => $user_data->bio,
                     'website'         => $user_data->website
-                ));
+                );
+
+                echo $twig->render('profile.twig', $profile);
 
                 // Get media data
 

@@ -1,15 +1,15 @@
 <div class="profile">
-  <a href="http://instagram.com/{{ username }}"><img src="{{ profile_picture }}" /></a>
+  <a href="http://instagram.com/{{ username }}" target="_blank"><img src="{{ profile_picture }}" /></a>
 
-  {% if full_name is defined %}
+  {% if full_name is not empty %}
   <h1>{{ full_name }}</h1>
   {% endif %}
 
-  {% if bio is defined %}
+  {% if bio is not empty %}
   <p>{{ bio|nl2br }}</p>
   {% endif %}
 
-  {% if website is defined %}
+  {% if website is not empty %}
   <p><a href="{{ website }}">{{ website }}</a></p>
   {% endif %}
 </div>
