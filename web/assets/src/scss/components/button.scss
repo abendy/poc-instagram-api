@@ -2,4 +2,14 @@
 
 .mdl-button {
     margin: 1rem;
+
+    &.login {
+        background-color: $insta-orange;
+        color: $insta-lightgrey;
+    }
+
+    &.logout {
+        background-color: $insta-purple;
+        color: $insta-lightgrey;
+    }
 }

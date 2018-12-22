@@ -26,12 +26,14 @@
 
         // Set button
         $button = array(
+            'class' => 'login',
             'text' => 'Connect to Instagram',
             'href' => $instagram->getLoginUrl(['scope' => $scope])
         );
 
         if (isset($access_token)) {
             $button = array(
+                'class' => 'logout',
                 'text' => 'Exit',
                 'href' => 'exit.php'
             );
