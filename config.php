@@ -23,6 +23,7 @@ catch (Exception $e) {
 	die($message);
 }
 
+// Get API credentials
 $creds = __DIR__ . '/credentials.json';
 
 if (file_exists($creds)) {
@@ -31,8 +32,9 @@ if (file_exists($creds)) {
     $config = json_decode($json, true);
 }
 
-$protocol      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
-$redirect_uri  = $protocol . '://' . $_SERVER['HTTP_HOST'] . '/callback.php';
+// Set up API callback URL
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https' : 'http';
+$redirect_uri = $protocol . '://' . $_SERVER['HTTP_HOST'] . '/callback.php';
 
 // Set API access token
 if ($cache->exists('access_token')) {
@@ -41,7 +43,10 @@ if ($cache->exists('access_token')) {
 
 $config['Callback'] = $redirect_uri;
 
-if (!isset($instagram) && is_array($config)) $instagram = new Instagram($config);
+// Instantiate API classes
+if (!isset($instagram) && is_array($config)) {
+    $instagram = new Instagram($config);
+}
 
 if (isset($instagram) && isset($access_token)) {
     // Set access token
