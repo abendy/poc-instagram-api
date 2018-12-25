@@ -4,7 +4,15 @@
 // ==========================================================================
 // $Libs
 // ==========================================================================
-// @import 'libs/...';
+
+/* Material Design Lite */
+
+// Resets and dependencies
+@import "node_modules/material-design-lite/src/resets/resets";
+
+// Components
+@import "node_modules/material-design-lite/src/ripple/ripple";
+@import "node_modules/material-design-lite/src/button/button";
 
 // ==========================================================================
 // $Utilities

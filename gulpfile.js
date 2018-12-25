@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const del = require('del');
 const gulp = require('gulp');
@@ -21,7 +22,7 @@ function clean(cb) {
 function scripts() {
     return gulp.src([
         'node_modules/material-design-lite/dist/material.js',
-        src + 'js/**/*.js'
+        src + 'js/app.js'
     ])
     .pipe(uglify())
     .pipe(concat('main.js'))
@@ -30,12 +31,12 @@ function scripts() {
 
 function styles() {
     return gulp.src([
-        'node_modules/material-design-lite/src/material-design-lite.scss',
         src + 'scss/style.scss'
     ])
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(concat('main.css'))
+    .pipe(cleanCSS())
     .pipe(gulp.dest(dist))
 }
 
