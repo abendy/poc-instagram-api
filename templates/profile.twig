@@ -1,15 +1,19 @@
 <div class="profile">
-  <a href="http://instagram.com/{{ username }}" target="_blank"><img src="{{ profile_picture }}" /></a>
+    <div>
+        <a href="http://instagram.com/{{ username }}" target="_blank"><img src="{{ profile_picture }}" /></a>
+    </div>
 
-  {% if full_name is not empty %}
-  <h1>{{ full_name }}</h1>
-  {% endif %}
+    <div>
+        {% if full_name is not empty %}
+        <h1>{{ full_name }}</h1>
+        {% endif %}
 
-  {% if bio is not empty %}
-  <p>{{ bio|nl2br }}</p>
-  {% endif %}
+        {% if bio is not empty %}
+        <p>{{ bio|nl2br }}</p>
+        {% endif %}
 
-  {% if website is not empty %}
-  <p><a href="{{ website }}">{{ website }}</a></p>
-  {% endif %}
+        {% if website is not empty %}
+        <p><a href="{{ website }}">{{ website }}</a></p>
+        {% endif %}
+    </div>
 </div>
